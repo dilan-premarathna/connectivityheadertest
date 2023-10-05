@@ -11,23 +11,6 @@ service /api/v1 on ep0 {
         mediation:Context mediationCtx = mediation:createMutableMediationContext(originalCtx, ["teste"], pathParams, request.getQueryParams());
         http:Response? backendResponse = ();
 
-        request.removeHeader("Accept");
-        request.removeHeader("Accept-Encoding");
-        request.removeHeader("Accept-Language");
-        request.removeHeader("Cdn-Loop");
-        request.removeHeader("Cf-Connecting-Ip");
-        request.removeHeader("Cf-Ipcountry");
-        request.removeHeader("Cf-Ray");
-        request.removeHeader("Cf-Visitor");
-        request.removeHeader("Origin");
-        request.removeHeader("Referer");
-        request.removeHeader("Sec-Ch-Ua");
-        request.removeHeader("Sec-Ch-Ua-Mobile");
-        request.removeHeader("Sec-Ch-Ua-Platform");
-        request.removeHeader("Sec-Fetch-Dest");
-        request.removeHeader("Sec-Fetch-Mode");
-        request.removeHeader("Sec-Fetch-Site");
-
         request.removeHeader("X-Correlation-Id");
         request.removeHeader("Sec-Fetch-Site");
         request.removeHeader("X-Forwarded-For");
