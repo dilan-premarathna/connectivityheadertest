@@ -13,7 +13,7 @@ service /api/v1 on ep0 {
 
         // request.removeHeader("X-Correlation-Id");
         // request.removeHeader("Sec-Fetch-Site");
-        // request.removeHeader("X-Forwarded-For");
+        request.removeHeader("X-Forwarded-For");
         request.removeHeader("X-Forwarded-Proto");
         // request.removeHeader("X-Request-Id");
         // request.removeHeader("X-Trace-Key");
