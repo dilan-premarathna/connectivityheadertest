@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: innvocation test
+  description: This api is used to connect to the innvocation test service
+  version: v1.0
+servers:
+ -
+  url: /
+security:
+ -
+  default: []
+paths:
+  /teste:
+    get:
+      parameters: []
+      responses:
+        "200":
+          description: ok
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+  /*:
+    get:
+      responses:
+        "200":
+          description: OK
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+    put:
+      responses:
+        "200":
+          description: OK
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+    post:
+      responses:
+        "200":
+          description: OK
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+    delete:
+      responses:
+        "200":
+          description: OK
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+    patch:
+      responses:
+        "200":
+          description: OK
+      security:
+       -
+        default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-throttling-limit:
+        requestCount: -1
+        unit: MINUTE
+components:
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: https://test.com
+          scopes: {}
+x-wso2-disable-security: false
+x-wso2-auth-header: Authorization
+x-wso2-cors:
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins:
+   - '*'
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders:
+   - authorization
+   - Access-Control-Allow-Origin
+   - Content-Type
+   - SOAPAction
+   - apikey
+   - API-Key
+   - testKey
+  accessControlAllowMethods:
+   - GET
+   - PUT
+   - POST
+   - DELETE
+   - PATCH
+   - OPTIONS
+x-wso2-production-endpoints:
+  urls:
+   - http://172.15.0.16:92/api/v1
+  type: http
+x-wso2-sandbox-endpoints:
+  urls:
+   - https://teste.requestcatcher.com/test
+  type: http
+x-wso2-basePath: /bf659be2-490b-450f-ab3c-15212e85c725/fwuz/default/v1.0
+x-wso2-transports:
+ - http
+ - https
+x-wso2-response-cache:
+  enabled: false
+  cacheTimeoutInSeconds: 300

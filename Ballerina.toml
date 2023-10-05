@@ -1,0 +1,9 @@
+[build-options]
+  observabilityIncluded = true
+
+[package]
+  distribution = "2201.5.1"
+  name = "mediation_ilftua"
+  org = "fatorseguradora"
+  version = "0.1.0"
+
