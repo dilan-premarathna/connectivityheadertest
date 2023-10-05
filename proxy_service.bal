@@ -21,6 +21,12 @@ service /api/v1 on ep0 {
         request.removeHeader("Cf-Visitor");
         request.removeHeader("Origin");
         request.removeHeader("Referer");
+        request.removeHeader("Sec-Ch-Ua");
+        request.removeHeader("Sec-Ch-Ua-Mobile");
+        request.removeHeader("Sec-Ch-Ua-Platform");
+        request.removeHeader("Sec-Fetch-Dest");
+        request.removeHeader("Sec-Fetch-Mode");
+        request.removeHeader("Sec-Fetch-Site");
 
         do {
 
