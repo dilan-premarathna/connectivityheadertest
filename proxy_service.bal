@@ -11,7 +11,7 @@ service /api/v1 on ep0 {
         mediation:Context mediationCtx = mediation:createMutableMediationContext(originalCtx, ["teste"], pathParams, request.getQueryParams());
         http:Response? backendResponse = ();
 
-        // request.removeHeader("X-Correlation-Id");
+        request.removeHeader("X-Correlation-Id");
         request.removeHeader("Sec-Fetch-Site");
         request.removeHeader("X-Forwarded-For");
         request.removeHeader("X-Forwarded-Proto");
