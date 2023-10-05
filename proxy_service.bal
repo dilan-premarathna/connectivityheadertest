@@ -10,14 +10,16 @@ service /api/v1 on ep0 {
         mediation:Context originalCtx = mediation:createImmutableMediationContext("get", ["teste"], pathParams, request.getQueryParams());
         mediation:Context mediationCtx = mediation:createMutableMediationContext(originalCtx, ["teste"], pathParams, request.getQueryParams());
         http:Response? backendResponse = ();
+
+        http:Request req = new;
         do {
 
             string|error incomingEnvHeader = request.getHeader("X-ENV");
             if (incomingEnvHeader is string && incomingEnvHeader === "sandbox") {
                 request.removeHeader("X-ENV");
-                backendResponse = check sandboxEP->execute(mediationCtx.httpMethod(), (check mediationCtx.resourcePath().resolve(pathParams)) + buildQuery(mediationCtx.queryParams()), request, targetType = http:Response);
+                backendResponse = check sandboxEP->execute(mediationCtx.httpMethod(), (check mediationCtx.resourcePath().resolve(pathParams)) + buildQuery(mediationCtx.queryParams()), req, targetType = http:Response);
             } else {
-                backendResponse = check backendEP->execute(mediationCtx.httpMethod(), (check mediationCtx.resourcePath().resolve(pathParams)) + buildQuery(mediationCtx.queryParams()), request, targetType = http:Response);
+                backendResponse = check backendEP->execute(mediationCtx.httpMethod(), (check mediationCtx.resourcePath().resolve(pathParams)) + buildQuery(mediationCtx.queryParams()), req, targetType = http:Response);
             }
 
             check caller->respond(backendResponse);
